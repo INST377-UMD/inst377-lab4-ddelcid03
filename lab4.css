@@ -1,0 +1,20 @@
+body {
+    background-color: lightblue;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.form-container, .button-container {
+    background-color: rgb(90, 4, 125);
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 25px;
+    border: 2px solid rgb(255, 255, 255);
+    width: 45%;
+    text-align: center;
+}
