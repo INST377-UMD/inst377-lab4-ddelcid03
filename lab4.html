@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>INST377 - Lab 4</title>
+        <link rel="stylesheet" href="lab4.css">
+    </head>
+
+    <body>
+        <!-- H1 for top of the page -->
+        <h1 id="mainHeading">INST 377 - Lab 4</h1>
+
+        <div class="row">
+            <!-- Name Form -->
+            <div class="form-container">
+                <form name="nameForm" onsubmit="formValidation()" id="nameForm">
+                    <label>Name:</label>
+                    <input type="text" id="name" required>
+                    <button type="submit">Alert Me!</button> 
+                </form>
+            </div>
+
+            <!-- Change Color Button -->
+            <div class="button-container">
+                <button onclick="backgroundColorChange()" id="changeColor">Change Color</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Text Tester -->
+            <div class="form-container">
+                <form name="textTest" onsubmit="validateText()" id="textTester">
+                    <label>Text Tester:</label>
+                    <input type="text" id="textInput">
+                    <button type="submit">Validate Text</button>
+                </form>
+            </div>
+
+            <!-- Add Text Button -->
+            <div class="button-container">
+                <button onclick="addingText()" id="addText">Add Text</button>
+            </div>
+        </div>
+
+        <!-- JavaScript Functions -->
+        <script type="text/javascript">
+            // Alert Me Function
+            function formValidation() {
+                event.preventDefault();
+                var name = document.getElementById('name').value;
+                alert("Hello " + name);
+                document.getElementById('name').value = '';
+            }
+            // Change Color Function
+            function backgroundColorChange() {
+                if (document.body.style.backgroundColor === 'lightblue') {
+                    document.body.style.backgroundColor = 'green';
+                } else {
+                    document.body.style.backgroundColor = 'lightblue';
+                }
+            }
+            // Text Tester Function
+            function validateText() {
+                event.preventDefault();
+                const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                const inputText = document.getElementById('textInput').value; 
+                if (validationRegex.test(inputText)) {
+                    alert('There is a special character! Please remove them!');
+                    return false; 
+                }
+
+                document.getElementById('textInput').value = '';
+                return true; 
+            }
+            // Add Text Function
+            function addingText() {
+                var heading = document.getElementById('mainHeading');
+                if (!heading.innerText.includes("Adding Text")) {
+                    heading.innerText += " - Adding Text";
+                }
+            }
+        </script>
+    </body>
+</html>
