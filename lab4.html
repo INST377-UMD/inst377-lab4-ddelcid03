@@ -44,8 +44,10 @@
         <script type="text/javascript">
             // Alert Me Function
             function formValidation() {
+                event.preventDefault();
                 var name = document.getElementById('name').value;
                 alert("Hello " + name);
+                document.getElementById('name').value = '';
             }
             // Change Color Function
             function backgroundColorChange() {
@@ -57,12 +59,15 @@
             }
             // Text Tester Function
             function validateText() {
+                event.preventDefault();
                 const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
                 const inputText = document.getElementById('textInput').value; 
                 if (validationRegex.test(inputText)) {
                     alert('There is a special character! Please remove them!');
                     return false; 
                 }
+
+                document.getElementById('textInput').value = '';
                 return true; 
             }
             // Add Text Function
